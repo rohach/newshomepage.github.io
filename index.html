@@ -32,6 +32,7 @@
 
 
     nav {
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -40,13 +41,40 @@
       margin: 0 auto;
     }
 
-    .nav__ul {
-      display: flex;
-      gap: 1rem;
+    nav .logo {
+      font-size: 38px;
+      letter-spacing: 5px;
     }
 
-    li a {
+    .navList {
+      font-size: 17px;
+      text-transform: uppercase;
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
       color: hsl(236, 13%, 42%);
+      text-decoration: none;
+    }
+
+    .navBtn {
+      display: none;
+      cursor: pointer;
+    }
+
+    .navBtn div {
+      width: 30px;
+      height: 2px;
+      margin: 5px;
+      background-color: black;
+      border-radius: 2px;
+      transition: all 0.5s ease-in;
+    }
+
+    .navList {
+      display: none;
     }
 
     .wrapper {
@@ -183,33 +211,132 @@
       color: hsl(236, 13%, 42%);
     }
 
+
+
+    @media screen and (max-width: 768px) {
+
+      nav {
+        padding: 0;
+        align-items: center;
+      }
+
+      .navList {
+        display: block;
+        position: absolute;
+        right: 0px;
+        height: 93vh;
+        top: clamp(60px, 7vh, 7vh);
+        margin-top: -4rem;
+        flex-direction: column;
+        gap: 5vh;
+        align-items: center;
+        padding: 5vh 15vw;
+        background-color: hsl(228, 45%, 44%);
+        font-size: 26px;
+        letter-spacing: 1px;
+        backdrop-filter: blur(5px);
+        transform: translate(100%);
+        transition: transform 0.5s ease-out;
+      }
+
+      .navLi a {
+        color: white !important;
+      }
+
+      .navLi {
+        opacity: 0;
+        margin-top: 5rem;
+      }
+
+      .navBtn {
+        display: block;
+      }
+    }
+
+
+    .navActive {
+      transform: translate(0%);
+    }
+
+
+    /* adding keyframe */
+    @keyframes SlideIn {
+      from {
+        opacity: 0;
+        transform: translate(250px, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    .navBtnToggle .line1 {
+      transform: rotate(-45deg) translate(-4px, 6px);
+    }
+
+    .navBtnToggle .line2 {
+      transform: scale(0) translate(10px, 0);
+    }
+
+    .navBtnToggle .line3 {
+      transform: rotate(45deg) translate(-4px, -6px);
+    }
+
+
     @media (max-width:991px) {
 
-      .pc__inner,
-      .laptop__inner,
-      .gaming__inner {
-        display: flex;
-        flex-direction: column;
+      .nav__ul {
+        display: none;
       }
 
-      .laptop__inner__left {
-        height: 100% !important;
-        width: 100% !important;
+      .toggler {
+        display: block !important;
       }
+
+      .new_inner::before {
+        top: 6.5rem;
+      }
+
+      section {
+        width: 100%;
+        grid-template-areas: "first"
+          "bright"
+          "read"
+          "new"
+          "pc"
+          "laptop"
+          "gaming";
+      }
+
+      .bottom__img {
+        width: 160px;
+        height: 190px;
+      }
+
+
     }
   </style>
 </head>
 
 <body>
+
   <nav>
     <img src="./assets/images/logo.svg" alt="logo" class="logo">
-    <ul class="nav__ul">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Popular</a></li>
-      <li><a href="#">Trending</a></li>
-      <li><a href="#">Categories</a></li>
+    <!-- navList -->
+    <ul class="navList">
+      <li class="navLi"><a href="">Home</a></li>
+      <li class="navLi"><a href="">About</a></li>
+      <li class="navLi"><a href="">Projects</a></li>
+      <li class="navLi"><a href="">Contact Us</a></li>
     </ul>
+    <!-- nav button -->
+    <div class="navBtn ">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
   </nav>
   <div class="wrapper">
     <section>
@@ -273,6 +400,23 @@
       </div>
     </section>
   </div>
+  <script>
+    const navList = document.querySelector('.navList')
+    const navBtn = document.querySelector('.navBtn')
+    const navLinks = document.querySelectorAll('.navLi')
+
+    navBtn.addEventListener('click', () => {
+      navBtn.classList.toggle('navBtnToggle');
+      navList.classList.toggle('navActive');
+      navLinks.forEach((item, index) => {
+        const delay = index / 10 + 0.05;
+        if (item.style.animation)
+          item.style.animation = '';
+        else
+          item.style.animation = `SlideIn 0.5s forwards ${delay}s`;
+      })
+    })
+  </script>
 </body>
 
 </html>
