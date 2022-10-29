@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>News homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+    * {
+      list-style: none;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 75%;
+      padding: 2rem 0 0 !important;
+      margin: 0 auto;
+    }
+
+    .nav__ul {
+      display: flex;
+      gap: 1rem;
+    }
+
+    li a {
+      color: hsl(236, 13%, 42%);
+    }
+
+    .wrapper {
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    section {
+      height: 50vh !important;
+      padding-top: 2em;
+      display: grid;
+      grid-template-areas:
+        "first first new"
+        "bright read new"
+        "pc laptop gaming";
+      gap: 1.5rem;
+    }
+
+    .first {
+      grid-area: first;
+      width: 100%;
+      height: 100%;
+    }
+
+    .new {
+      grid-area: new;
+      background-color: hsl(240, 100%, 5%);
+      padding: 1rem;
+    }
+
+    .new h3 {
+      color: hsl(35, 77%, 62%);
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
+    .new h5 {
+      color: white;
+
+    }
+
+    .new p {
+      color: hsl(236, 13%, 42%);
+      position: relative;
+    }
+
+    .new_inner {
+      position: relative;
+    }
+
+    .new_inner::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      top: 5.5rem;
+      right: 0;
+      background-color: hsl(236, 13%, 42%);
+    }
+
+    .bright {
+      grid-area: bright;
+      font-size: 3rem !important;
+      font-weight: 800 !important;
+      margin: 0 !important;
+      width: 80%;
+
+    }
+
+    .read {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      grid-area: read;
+      color: hsl(236, 13%, 42%);
+      margin: 0;
+    }
+
+    .read button {
+      display: flex;
+      background-color: hsl(5, 85%, 63%);
+      color: hsl(36, 100%, 99%);
+      border: none;
+      padding: 0.5rem 1.5rem;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-top: auto !important;
+      width: fit-content !important;
+    }
+
+    .pc {
+      grid-area: pc;
+    }
+
+
+    .laptop {
+      grid-area: laptop;
+    }
+
+    .gaming {
+      grid-area: gaming;
+    }
+
+    .pc__inner,
+    .laptop__inner,
+    .gaming__inner {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .heading {
+      font-weight: bold;
+    }
+
+    .laptop__inner__left {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .bottom__img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .number {
+      color: hsl(236, 13%, 42%);
+      font-size: 2rem;
+    }
+
+    .paragraph {
+      margin-top: -0.9rem;
+      font-size: 14px;
+      color: hsl(236, 13%, 42%);
+    }
+
+    @media (max-width:991px) {
+
+      .pc__inner,
+      .laptop__inner,
+      .gaming__inner {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .laptop__inner__left {
+        height: 100% !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <img src="./assets/images/logo.svg" alt="logo" class="logo">
+    <ul class="nav__ul">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Popular</a></li>
+      <li><a href="#">Trending</a></li>
+      <li><a href="#">Categories</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
+    <section>
+      <img src="./assets/images/image-web-3-desktop.jpg" alt="first" class="first">
+      <div class="new">
+        <h3>New</h3>
+        <div class="new_inner">
+          <h5>Hydrogen VS Electric Cars</h5>
+          <p>Will hydrogen-fueled cars ever catch up to EVS?</p>
+        </div><br>
+        <div class="new_inner">
+          <h5>The Downsides of AI Artistry</h5>
+          <p>What are the possible adverse effects of on-demand AI image generation?</p>
+        </div>
+        <br>
+        <h5>Is VC Funding Drying Up?</h5>
+        <p>Private finding by VC firms is down 50% YDY. We take a look at what that means.</p>
+      </div>
+      <h1 class="bright">The Bright Future of Web 3.0?</h1>
+      <p class="read">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate provident facere fugit nam
+        aliquid earum
+        quas cum quae ipsum minima.
+        <br>
+        <button>READ MORE</button>
+      </p>
+      <div class="pc">
+        <div class="pc__inner">
+          <div class="pc__inner__left">
+            <img src="./assets/images/image-retro-pcs.jpg" alt="lower" class="bottom__img">
+          </div>
+          <div class="pc__inner_right">
+            <div class="number">01</div>
+            <h4 class="heading">Reviving Retro PCs</h4>
+            <p class="paragraph">What happens when old PCs are given modern upgrades?</p>
+          </div>
+        </div>
+      </div>
+      <div class="laptop">
+        <div class="laptop__inner">
+          <div class="laptop__inner__left">
+            <img src="./assets/images/image-top-laptops.jpg" alt="lower" class="bottom__img">
+          </div>
+          <div class="laptop__inner_right">
+            <div class="number">02</div>
+            <h4 class="heading">Top 10 Laptops of 2022</h4>
+            <p class="paragraph">Our best picks for various needs and budgets.</p>
+          </div>
+        </div>
+      </div>
+      <div class="gaming">
+        <div class="gaming__inner">
+          <div class="gaming__inner__left">
+            <img src="./assets/images/image-gaming-growth.jpg" alt="lower" class="bottom__img">
+          </div>
+          <div class="gaming__inner_right">
+            <div class="number">03</div>
+            <h4 class="heading">The Growth of Gaming</h4>
+            <p class="paragraph">How the pandemic has sparked fresh opportunities. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
